@@ -20,4 +20,13 @@ Route::get('/blog/{blog}', 'BlogController@show')->name('blog');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard', 'SiteController@dashboard')->name('home');
+    Route::resource('/dashboard/users', 'Admin\UserController');
+    Route::get('/user-edit/{id}', 'Admin\UserController@edit' );
+    Route::put('/user-role-update/{{id}}', 'Admin\UserController@userupdate');
+    Route::delete('/user-delete/{{$id}}', 'Admin\UserController@userdelete');
+
+    Route::resource('/dashboard/blogs', 'Admin\BlogController');
+    Route::get('/blog-create', 'Admin\BlogController@create');
+    
 });
+

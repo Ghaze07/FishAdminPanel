@@ -213,7 +213,8 @@ class BlogSeeder extends Seeder
                 $string = mb_strtolower(trim($string), 'UTF-8');
                 // Remove multiple dashes or whitespaces or underscores
                 //$string = preg_replace("/[\s-_]+/", ' ', $string);
-                $string = preg_replace("/[_-\s]+/", ' ', $string);
+                //$string = preg_replace("/[_-\s]+/", ' ', $string);
+                $string = preg_replace("/[_\-\s]+/", ' ', $string); //Made correction here by inserting \ before-
                 // Convert whitespaces and underscore to the given separator
                 $string = preg_replace("/[\s_]/", "_", $string);
                 return $string;
