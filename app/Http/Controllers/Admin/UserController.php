@@ -15,6 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        
         $users = User::all();
         return view('admin.users')->with('users', $users);
     }
@@ -72,6 +73,7 @@ class UserController extends Controller
      */
     public function userupdate(Request $request, $id)
     {
+        $this->authorize('edit', User::class);
         $users = User::find($id);
         $users->role = $request->input('usertype');
         $users->update();

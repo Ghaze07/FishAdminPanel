@@ -15,7 +15,9 @@
       <div class="card">
         <div class="card-header">
           <h4 class="card-title"> Blogs</h4>
+          @can('create', App\Blog::class)
           <a href="/blog-create" class="btn btn-success">Add New Blog</a>
+          @endcan
           @if (session('status'))
            <div class="alert alert-success" role="alert">
 

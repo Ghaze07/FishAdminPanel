@@ -16,6 +16,7 @@ class BlogController extends Controller
      */
     public function index()
     {
+        
         $blogs = Blog::all();
         return view('admin.blogs')->with('blogs', $blogs);
     }
@@ -41,7 +42,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->authorize('create', Blog::class);
     }
 
     /**

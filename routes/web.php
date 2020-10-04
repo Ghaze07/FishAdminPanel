@@ -18,7 +18,7 @@ Route::get('/', 'SiteController@index');
 Route::get('/blog', 'BlogController@index')->name('blogs');
 Route::get('/blog/{blog}', 'BlogController@show')->name('blog');
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => ['auth' => 'admin'] ], function() {
     Route::get('/dashboard', 'SiteController@dashboard')->name('home');
     Route::resource('/dashboard/users', 'Admin\UserController');
     Route::get('/user-edit/{id}', 'Admin\UserController@edit' );
