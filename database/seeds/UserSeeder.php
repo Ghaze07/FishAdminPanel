@@ -13,8 +13,8 @@ class UserSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'Khyam Shahzad',
-                'email' => 'kshahzad@intercraftsol.com',
+                'name' => 'Ghazi Khan',
+                'email' => 'ghaziislam3@gmail.com',
                 'mobile' => 3215791371,
                 'password' => Hash::make("Intercraft"),
                 'role' => 'admin',

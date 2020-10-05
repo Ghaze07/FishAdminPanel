@@ -27,6 +27,12 @@ Route::group(['middleware' => ['auth' => 'admin'] ], function() {
 
     Route::resource('/dashboard/blogs', 'Admin\BlogController');
     Route::get('/blog-create', 'Admin\BlogController@create');
+
+    Route::resource('/dashboard/fishes', 'Admin\FishController');
+    Route::get('/fish-add', 'Admin\FishController@create');
+    Route::post('dashboard/fish-store', 'Admin\FishController@store');
+    Route::get('/fish-edit/{id}', 'Admin\FishController@edit' );
+    Route::put('/fish-update/{id}', 'Admin\FishController@update');
     
 });
 

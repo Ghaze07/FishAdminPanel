@@ -2,7 +2,7 @@
 
 @section('title')
 
-   Dashboard | Registerd Users
+   Dashboard | Fishes
 
 @endsection
     
@@ -14,7 +14,9 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Customers</h4>
+          <h4 class="card-title"> Fishes</h4>
+
+        <a href="{{ url('/fish-add') }}" class="btn btn-primary py-2">Add Fish</a>
           @if (session('status'))
            <div class="alert alert-success" role="alert">
 
@@ -28,29 +30,29 @@
           <div class="table-responsive">
             <table id="dataTable" class="table">
               <thead class=" text-primary">
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Mobile</th>
-                <th>Role</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>In Stock</th>
+                <th>Price</th>
+                <th>Quantity</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </thead>
               <tbody>
                  
-                @foreach($users as $user)
+                @foreach($fishes as $fish)
                       
                       <tr>
-                      <td>{{ $user->id }}</td>
-                      <td>{{ $user->name }}</td>
-                      <td>{{ $user->email }}</td>
-                      <td>{{ $user->mobile }}</td>
-                      <td>{{ $user->role }}</td>
-                        <td>
-                        <a href="/user-edit/{{ $user->id }}" class="btn btn-success">Edit</a>
+                      <td>{{ $fish->id }}</td>
+                      <td>{{ $fish->title }}</td>
+                      <td>{{ $fish->instock }}</td>
+                      <td>{{ $fish->price }}</td>
+                      <td>{{ $fish->quantity }}</td>
+                      <td>
+                        <a href="/fish-edit/{{ $fish->id }}" class="btn btn-success">Edit</a>
                         </td>
                         <td>
-                          <form action="/user-delete/{{ $user->id }}" method="POST">
+                          <form action="/fish-delete/{{ $fish->id }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
                             <button type="submit" class="btn btn-danger">Delete</button>

@@ -19,6 +19,7 @@
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ asset('assets/css/dataTables.min.css') }}">
 </head>
 
 <body class="">
@@ -46,8 +47,8 @@
               <p>User Profile</p>
             </a>
           </li>
-          <li>
-            <a href="">
+          <li class="{{ 'dashboard/fishes' == request()->path() ? 'active' : ''}}">
+            <a href="/dashboard/fishes">
               <i class="now-ui-icons education_atom"></i>
               <p>Fishes</p>
             </a>
@@ -193,6 +194,7 @@
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="{{ asset('assets/js/dataTables.min.js') }}"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
